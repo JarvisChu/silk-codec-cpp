@@ -7,6 +7,7 @@ Silk codec implemented by C++. Encoding pcm audio to silk, or decoding silk audi
 ```bash
 cmake .
 make
+./SilkCodecDemo
 ```
 
 # Example
