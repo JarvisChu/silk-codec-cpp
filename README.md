@@ -31,7 +31,7 @@ int main()
         printf("encoder success\n");
     }
 
-    // demo for silk decode
+    // demo for silk decoder
     {
         SilkCodec::SilkDecoder decoder;
         decoder.Init(8000, 16, 1);
