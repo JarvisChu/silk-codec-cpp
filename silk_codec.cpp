@@ -235,26 +235,14 @@ SilkDecoder::~SilkDecoder()
 	}
 }
 
-int SilkDecoder::Init(uint32_t sampleRate, uint32_t sampleBits, uint32_t channelCnt)
+int SilkDecoder::Init(uint32_t sampleRate)
 {
-    printf("[SilkDecoder::Init] sampleRate:%d, sampleBits:%d, channelCnt=%d\n", sampleRate, sampleBits, channelCnt);
+    printf("[SilkDecoder::Init] sampleRate:%d\n", sampleRate);
 
 	//check sampleRate
 	if(sampleRate != 8000 && sampleRate != 16000 && sampleRate != 24000 && 
 		sampleRate != 32000 && sampleRate != 44100 && sampleRate != 48000){
 		printf("invalid sample rate, only support 8000/16000/24000/32000/44100/48000 \n");
-		return ErrCodeInvalidParam;
-	}
-
-    // check sampleBits
-	if(sampleBits != 8 && sampleBits != 16 && sampleBits != 24 && sampleBits != 32){
-		printf("invalid sample bit, only support 8/16/24/32\n");
-		return ErrCodeInvalidParam;
-	}
-
-	// check channelCnt
-	if(channelCnt != 1 && channelCnt != 2 && channelCnt != 4 && channelCnt != 8){
-		printf("invalid channel number, only support 1/2/4/8\n");
 		return ErrCodeInvalidParam;
 	}
 
@@ -276,8 +264,6 @@ int SilkDecoder::Init(uint32_t sampleRate, uint32_t sampleBits, uint32_t channel
 
     // save sample parameters
     m_sampleRate = sampleRate;
-    m_sampleBits = sampleBits;
-    m_channelCnt = channelCnt;
 
     return ErrCodeSuccess;
 }

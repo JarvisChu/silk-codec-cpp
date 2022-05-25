@@ -72,11 +72,9 @@ public:
 
     /* 初始化 Silk 解码器
      * sampleRate: 采样率，支持 8000\16000\24000\32000\44100\48000
-     * sampleBits: 采样的位深，支持 8\16\24\32
-     * channelCnt: 通道数，支持 1\2\4\8
      * return: 0 成功
      */
-    int Init(uint32_t sampleRate, uint32_t sampleBits, uint32_t channelCnt);
+    int Init(uint32_t sampleRate);
 
     /* 将标准封装的 silk 数据解码成 pcm
      * silkIn: 待解码的 silk 数据，其格式为标准的20ms分片的封装
@@ -101,8 +99,6 @@ public:
 private:
     void *   m_pDecoder = nullptr;
     uint32_t m_sampleRate = 0;
-    uint32_t m_sampleBits = 0;
-    uint32_t m_channelCnt = 0;
  };
 
 };
