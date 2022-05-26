@@ -371,6 +371,7 @@ int SilkDecoder::DecodeFile(const std::string& silkFilePath, const std::string& 
         nReadSize = fread(pkgSizeBuffer, sizeof(char), 2, fpIn);
         if(nReadSize < 2) break;
         short pkgSize = LittleEndianBytes2Short(pkgSizeBuffer[0], pkgSizeBuffer[1]);
+        if(pkgSize <= 0) break;
 
         std::vector<uint8_t> oneSilkPackage;
         oneSilkPackage.resize(pkgSize, 0);
